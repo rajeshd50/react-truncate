@@ -323,6 +323,10 @@ export default class Truncate extends Component {
                 children,
                 ellipsis,
                 lines,
+                textClass,
+                innerClass,
+                topClass,
+                ellipsisClass,
                 ...spanProps
             },
             state: {
@@ -351,13 +355,13 @@ export default class Truncate extends Component {
         delete spanProps.trimWhitespace;
 
         return (
-            <div {...spanProps} ref={(targetEl) => { this.elements.target = targetEl; }}>
-                <div>{text}</div>
-                <div ref={(textEl) => { this.elements.text = textEl; }}>{children}</div>
-                <div ref={(ellipsisEl) => { this.elements.ellipsis = ellipsisEl; }} style={this.styles.ellipsis}>
+            <span {...spanProps} className={topClass} ref={(targetEl) => { this.elements.target = targetEl; }}>
+                <span className={textClass}>{text}</span>
+                <span className={innerClass} ref={(textEl) => { this.elements.text = textEl; }}>{children}</span>
+                <span className={ellipsisClass} ref={(ellipsisEl) => { this.elements.ellipsis = ellipsisEl; }} style={this.styles.ellipsis}>
                     {ellipsis}
-                </div>
-            </div>
+                </span>
+            </span>
         );
     }
 
