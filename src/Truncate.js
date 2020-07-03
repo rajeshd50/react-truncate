@@ -351,13 +351,13 @@ export default class Truncate extends Component {
         delete spanProps.trimWhitespace;
 
         return (
-            <span {...spanProps} ref={(targetEl) => { this.elements.target = targetEl; }}>
-                <span>{text}</span>
-                <span ref={(textEl) => { this.elements.text = textEl; }}>{children}</span>
-                <span ref={(ellipsisEl) => { this.elements.ellipsis = ellipsisEl; }} style={this.styles.ellipsis}>
+            <div {...spanProps} ref={(targetEl) => { this.elements.target = targetEl; }}>
+                <div>{text}</div>
+                <div ref={(textEl) => { this.elements.text = textEl; }}>{children}</div>
+                <div ref={(ellipsisEl) => { this.elements.ellipsis = ellipsisEl; }} style={this.styles.ellipsis}>
                     {ellipsis}
-                </span>
-            </span>
+                </div>
+            </div>
         );
     }
 
